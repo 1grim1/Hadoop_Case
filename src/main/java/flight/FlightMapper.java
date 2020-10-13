@@ -9,16 +9,14 @@ import java.io.IOException;
 
 public class FlightMapper extends Mapper<LongWritable, Text, WComparable,  Text> {
 
-    private static final String SEPARATOR = ",";
-
-    private static final int DEST_AIRPORT_ID_LEN = 14;
-
-    private static final int ARR_DELAY_LEN = 17;
-
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        String SEPARATOR = ",";
         String[] table = value.toString().split(SEPARATOR);
+        int DEST_AIRPORT_ID_LEN = 14;
+
         int airportID = Integer.parseInt(table[DEST_AIRPORT_ID_LEN]);
+        int ARR_DELAY_LEN = 17;
         double airportDelay = getDelay(table[ARR_DELAY_LEN]);
         if(airportDelay > 0.0){
             WComparable comparable = new WComparable(airportID, 1);
