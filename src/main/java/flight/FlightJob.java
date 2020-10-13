@@ -2,8 +2,8 @@ package flight;
 
 import org.apache.hadoop.mapreduce.Job;
 
-public class FlightJob {
-    public static void main(String[] args){
+public class FlightJob  {
+    public static void main(String[] args) throws Exception{
         if(args.length != 3){
             System.exit(-1);
         }
