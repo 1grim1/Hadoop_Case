@@ -8,11 +8,10 @@ import java.io.IOException;
 
 public class WComparable implements WritableComparable {
 
+    private int airportID;
 
-    @Override
-    public int compareTo(int airportID) {
-        return 0;
-    }
+    private
+
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
@@ -22,5 +21,10 @@ public class WComparable implements WritableComparable {
     @Override
     public void readFields(DataInput dataInput) throws IOException {
 
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
