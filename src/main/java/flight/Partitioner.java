@@ -1,2 +1,4 @@
-package flight;public class Partitioner {
+package flight;
+
+public class Partitioner {
 }

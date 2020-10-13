@@ -12,13 +12,16 @@ public class FlightJob  {
             System.exit(-1);
         }
 
+        //init
         Job job = Job.getInstance();
         job.setJarByClass(FlightJob.class);
         job.setJobName("");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, FlightMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, NameMapper.class);
 
+        //output
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
+        job.setPartitionerClass(Partitioner.class);
 
     }
 }
