@@ -2,10 +2,11 @@ package flight;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.FileOutputFormat;
-import org.apache.hadoop.mapred.TextInputFormat;
-import org.apache.hadoop.mapred.lib.MultipleInputs;
+
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class FlightJob  {
     public static void main(String[] args) throws Exception{
@@ -16,7 +17,7 @@ public class FlightJob  {
         //init
         Job job = Job.getInstance();
         job.setJarByClass(FlightJob.class);
-        job.setJobName("");
+        job.setJobName("JoinJob");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, FlightMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, NameMapper.class);
 
@@ -24,7 +25,7 @@ public class FlightJob  {
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(FlightPartitioner.class);
         job.setGroupingComparatorClass(GComparator.class);
-        job.setReducerClass(Reduce.class);
+        job.setReducerClass(FlightReduce.class);
         job.setMapOutputKeyClass(WComparable.class);
         job.setMapOutputValueClass(Text.class);
 
