@@ -10,7 +10,7 @@ public class WComparable implements WritableComparable {
 
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(int airportID) {
         return 0;
     }
 
