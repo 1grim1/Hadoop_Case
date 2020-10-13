@@ -1,2 +1,4 @@
-package flight;public class NameMapper {
+package flight;
+
+public class NameMapper {
 }
