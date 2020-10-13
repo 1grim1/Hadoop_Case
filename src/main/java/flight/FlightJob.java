@@ -1,6 +1,7 @@
 package flight;
 
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.FileOutputFormat;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.lib.MultipleInputs;
@@ -19,14 +20,17 @@ public class FlightJob  {
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, FlightMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, NameMapper.class);
 
-        //output
+        //setters
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(Partitioner.class);
         job.setGroupingComparatorClass(GComparator.class);
         job.setReducerClass(Reduce.class);
         job.setMapOutputKeyClass(OutputKey.class);
-        
+        job.setMapOutputValueClass(Text.class);
 
+        //
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
 
     }
 }
