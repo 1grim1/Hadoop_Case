@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class FlightMapper extends Mapper<LongWritable, Text, WritableComparable,  Text> {
+public class FlightMapper extends Mapper<LongWritable, Text, WComparable,  Text> {
 
     private static final String SEPARATOR = ",";
 
@@ -21,7 +21,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, WritableComparable,
         int airportID = Integer.parseInt(table[DEST_AIRPORT_ID_LEN]);
         double airportDelay = getDelay(table[ARR_DELAY_LEN]);
         if(airportDelay > 0.0){
-            WritableComparable comparable = new WritableComparable(airportID, 1);
+            WComparable comparable = new WComparable(airportID, 1);
             context.write(comparable, new  Text(Double.toString(airportDelay)));
         }
 

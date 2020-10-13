@@ -19,21 +19,20 @@ public class WComparable implements WritableComparable {
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
-
+        dataOutput.writeInt(airportID);
+        dataOutput.writeInt(group);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
-
+        this.airportID = dataInput.readInt();
+        this.group = dataInput.readInt();
     }
 
     @Override
-    public int compareTo(WritableComparable elem) {
-
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Object o){
+        WComparable elem = (WComparable) o;
+        return this.airportID - elem.airportID > 0 ? 1 :
+                ((this.airportID - elem.airportID == 0) && (this.group - elem.group > 0 ) ? 1 : -1);
     }
 }
