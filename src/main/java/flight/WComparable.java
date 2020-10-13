@@ -17,6 +17,11 @@ public class WComparable implements WritableComparable {
         this.group = group;
     }
 
+    public int compare(Object o){
+        WComparable wc1 = (WComparable) o;
+        return Integer.compare(this.airportID, wc1.airportID);
+    }
+
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeInt(airportID);

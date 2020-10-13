@@ -13,6 +13,8 @@ public class GComparator extends WritableComparator {
 
     @Override
     public int compare(WritableComparable a, WritableComparable b) {
-        return super.compare(a, b);
+        WComparable wc1 = (WComparable) a;
+        WComparable wc2 = (WComparable) b;
+        return wc1.compare(wc2);
     }
 }
