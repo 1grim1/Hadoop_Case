@@ -1,0 +1,7 @@
+/home/grim/IdeaProjects/lab1/src/main/java/flight/NameMapper.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/FlightMapper.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/FlightPartitioner.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/FlightReduce.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/GComparator.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/FlightJob.java
+/home/grim/IdeaProjects/lab1/src/main/java/flight/WComparable.java

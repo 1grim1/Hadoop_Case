@@ -1,0 +1,7 @@
+flight/FlightMapper.class
+flight/WComparable.class
+flight/FlightJob.class
+flight/FlightPartitioner.class
+flight/FlightReduce.class
+flight/NameMapper.class
+flight/GComparator.class
