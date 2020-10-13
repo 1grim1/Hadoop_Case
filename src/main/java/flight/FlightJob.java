@@ -6,6 +6,6 @@ public class FlightJob {
             System.exit(-1);
         }
         Job job = Job.getInstance();
-        
+        adadad
     }
 }
