@@ -8,6 +8,6 @@ public class FlightPartitioner extends Partitioner<WComparable, Text> {
 
     @Override
     public int getPartition(WComparable wComparable, Text text, int i) {
-        return 0;
+        return wComparable.getKey() % i;
     }
 }

@@ -22,7 +22,7 @@ public class FlightJob  {
 
         //setters
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
-        job.setPartitionerClass(Partitioner.class);
+        job.setPartitionerClass(FlightPartitioner.class);
         job.setGroupingComparatorClass(GComparator.class);
         job.setReducerClass(Reduce.class);
         job.setMapOutputKeyClass(OutputKey.class);
