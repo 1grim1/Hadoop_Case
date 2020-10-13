@@ -1,2 +1,4 @@
-package flight;public class WritableComparable {
+package flight;
+
+public class WritableComparable extends Writeb {
 }
