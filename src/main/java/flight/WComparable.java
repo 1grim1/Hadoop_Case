@@ -1,4 +1,12 @@
 package flight;
 
-public class WritableComparable extends Writeb {
+import org.apache.hadoop.io.WritableComparable;
+
+public class WComparable implements WritableComparable {
+
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
