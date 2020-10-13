@@ -1,2 +1,4 @@
-package flight;public class GComparator {
+package flight;
+
+public class GComparator {
 }
