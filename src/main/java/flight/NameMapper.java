@@ -10,9 +10,11 @@ public class NameMapper extends Mapper<LongWritable, Text, WComparable, Text> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String[] table = value.toString().split("/");
-        int destAirportID = Integer.parseInt(table[0]);
-        WComparable wComparable = new WComparable(destAirportID, 0);
-        context.write(wComparable, new Text(table[1]));
+        if(key.get() != 0){
+            String[] table = value.toString().split("/");
+            int destAirportID = Integer.parseInt(table[0]);
+            WComparable wComparable = new WComparable(destAirportID, 0);
+            context.write(wComparable, new Text(table[1]));
+        }
     }
 }
